@@ -986,6 +986,20 @@
             $this->_join_sources[] = "{$table} ON {$constraint}";
             return $this;
         }
+        
+        /**
+         * Add an LEFT JOIN source to the query
+         */
+        public function left_join($table, $constraint, $table_alias=null) {
+        	return $this->_add_join_source("LEFT", $table, $constraint, $table_alias);
+        }
+        
+        /**
+         * Add an RIGHT JOIN source to the query
+         */
+        public function right_join($table, $constraint, $table_alias=null) {
+        	return $this->_add_join_source("RIGHT", $table, $constraint, $table_alias);
+        }
 
         /**
          * Add a simple JOIN source to the query
